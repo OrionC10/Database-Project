@@ -144,6 +144,10 @@ main article {
     text-align: center;
 }
 
+.loginContainer {
+    margin-top: 100px;
+}
+
 main article p {
     background-color: white;
     color: var(--lighterBlue);

@@ -8,24 +8,28 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to Sleaze Bay Ya Sleaze Bag</h1>
+        <h1>Create Your Account Ya Sleaze Bag</h1>
     </header>
     <main>
         <article class="loginContainer">
-            <h2>Login to Sleaze Bay</h2>
-            <form id="loginForm">
+            <h2>Create Account</h2>
+            <form id="createAccountForm">
                 <div>
-                    <label for="username">Username</label>
+                    <label for="username">Enter Your Username</label>
                     <input type="text" id="username" name="username" required placeholder="username">
                 </div>
                 <div>
-                    <label for="password">Password </label>
+                    <label for="password">Enter Your Password</label>
                     <input type="password" id="password" name="password" required placeholder="password">
                 </div>
-                <button type="submit">Login</button>
-                <button id="createAccount">Create An Account</button>
+                <div>
+                    <label for="username">Confirm Password</label>
+                    <input type="text" id="confirmPassword" name="confirmPassword" required placeholder="password">
+                </div>
+                <button type="submit">Create Account</button>
             </form>
         </article>
+        <?php include '../backEnd/access.php'; ?>
     </main>
 
     <script src="./loginScript.js"></script>
