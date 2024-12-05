@@ -53,7 +53,8 @@ if (!isset($_GET["form_submitted"]))
 else {
   if (!empty($_GET["make"]) && !empty($_GET["model"]) && !empty($_GET["year"]) && !empty($_GET["color"]) && !empty($_GET["mileage"]) && !empty($_GET["askingPrice"]) && !empty($_GET["description"]))
 {
-  $listingID = $_GET["listingID"];
+  // $listingID = $_GET["listingID"];
+  // echo "<b>  </b>";
   $carMake = $_GET["make"];
   $carModel = $_GET["model"];
   $carYear = $_GET["year"];
@@ -63,7 +64,7 @@ else {
   $carDescription = $_GET["description"];
   //  $carSellerID = $_GET["sellerID"]; // ***may need to be changed
   $sellerID = $_SESSION["userID"]; //should grad the ID forom the current session
-  $sqlstatement = $conn->prepare("INSERT INTO sleazCarListing (make, model, year, color, mileage, askingPrice, description, sellerID) values(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+  $sqlstatement = $conn->prepare("INSERT INTO sleazCarListing (make, model, year, color, mileage, askingPrice, description, sellerID) values(?, ?, ?, ?, ?, ?, ?, ?)");
   $sqlstatement->bind_param("ssisiisi",$carMake,$carModel,$carYear,$carColor,$carMileage,$carAskingPrice,$carDescription,$sellerID); //insert the variables into the ? in the above statement // "sssssssss" may not be correct
   if($sqlstatement->execute()) { //execute the query
     
