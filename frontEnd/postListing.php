@@ -63,9 +63,9 @@ else {
     $carAskingPrice = $_GET["askingPrice"];
     $carDescription = $_GET["description"];
     //get user id
-    $sellerID = 6;
+    // $sellerID = 6;
     // $sellerID = $_SESSION["id"];
-    echo "<b>session id is $sellerID</b>";
+    // echo "<b>session id is $sellerID</b>";
     // $sellerUsername = $_SESSION["username"]; //should grab the ID forom the current session
     // $sqlUserID = "SELECT userID FROM sleazUser WHERE username = $sellerUsername";
     // if($stmt = $conn->prepare($sqlUserID)){
@@ -79,13 +79,13 @@ else {
     //   }
     // }
 
-    $sqlstatement = $conn->prepare("INSERT INTO sleazCarListing (make, model, year, color, mileage, askingPrice, description, sellerID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $sqlstatement->bind_param("ssisiisi",$carMake,$carModel,$carYear,$carColor,$carMileage,$carAskingPrice,$carDescription,$sellerID); //insert the variables into the ? in the above statement // "sssssssss" may not be correct
+    $sqlstatement = $conn->prepare("INSERT INTO sleazCarListing (make, model, year, color, mileage, askingPrice, description) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $sqlstatement->bind_param("ssisiis",$carMake,$carModel,$carYear,$carColor,$carMileage,$carAskingPrice,$carDescription); //insert the variables into the ? in the above statement // "sssssssss" may not be correct
     if($sqlstatement->execute()) { //execute the query
       echo "<b> Sucess </b>";
     } else {
       echo "<b> Error: form submition not working, ty again later </b>";
-      echo "<b>values are, $carMake, $carModel, $carYear, $carColor, $carMileage, $carAskingPrice, $carDescription, $sellerID</b>";
+      // echo "<b>values are, $carMake, $carModel, $carYear, $carColor, $carMileage, $carAskingPrice, $carDescription</b>";
     }
     // echo $sqlstatement->error; //print an error if the query fails
     $sqlstatement->close();
