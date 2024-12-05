@@ -22,10 +22,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <body>
 <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to Sleaze Bay.</h1>
     <p><nav class="nav justify-content-center">
-    <a href="index.php" class="nav-item nav-link active">Home</a>
     <a href="listingTable.php" class="nav-item nav-link">View Listings</a>
     <a href="listing-search-prepared-links.php" class="nav-item nav-link">Search Listings</a>
-    <a href="newListing.php" class="nav-item nav-link">Enter New Listing</a>
+    <a href="postListing.php" class="nav-item nav-link">Enter New Listing</a>
     <a href="deleteListing.php" class="nav-item nav-link" tabindex="-1">Delete Listing</a>
 </nav>
 
