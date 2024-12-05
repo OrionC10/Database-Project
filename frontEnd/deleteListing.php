@@ -44,7 +44,7 @@ include '../backEnd/config.inc'; // Change path if needed
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Delete Faculty</title>
+    <title>Buy Car</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body{ font: 14px sans-serif; text-align: center; }
@@ -58,7 +58,8 @@ include '../backEnd/config.inc'; // Change path if needed
     <a href="listingTable.php" class="nav-item nav-link">View Listings</a>
     <a href="listing-search-prepared-links.php" class="nav-item nav-link">Search Listings</a>
     <a href="postListing.php" class="nav-item nav-link">Enter New Listing</a>
-    <a href="deleteListing.php" class="nav-item nav-link" tabindex="-1">Delete Listing</a>
+    <a href="deleteListing.php" class="nav-item nav-link" tabindex="-1">Buy Listing</a>
+    <a href="logout.php" class="nav-item nav-link" tabindex="-1">Log out</a>
 </nav>
 <p><h2>Current Listings:</h2></p>
 <?php

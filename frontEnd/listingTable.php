@@ -25,7 +25,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <a href="listingTable.php" class="nav-item nav-link">View Listings</a>
     <a href="listing-search-prepared-links.php" class="nav-item nav-link">Search Listings</a>
     <a href="postListing.php" class="nav-item nav-link">Enter New Listing</a>
-    <a href="deleteListing.php" class="nav-item nav-link" tabindex="-1">Delete Listing</a>
+    <a href="deleteListing.php" class="nav-item nav-link" tabindex="-1">Buy Listing</a>
     <a href="logout.php" class="nav-item nav-link" tabindex="-1">Log out</a>
 </nav>
 
