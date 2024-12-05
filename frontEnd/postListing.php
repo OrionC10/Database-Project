@@ -52,33 +52,32 @@ if (!isset($_GET["form_submitted"]))
 }
 else {
   if (!empty($_GET["make"]) && !empty($_GET["model"]) && !empty($_GET["year"]) && !empty($_GET["color"]) && !empty($_GET["mileage"]) && !empty($_GET["askingPrice"]) && !empty($_GET["description"]))
-{
-  // $listingID = $_GET["listingID"];
-  // echo "<b>  </b>";
-  $carMake = $_GET["make"];
-  $carModel = $_GET["model"];
-  $carYear = $_GET["year"];
-  $carColor = $_GET["color"];
-  $carMileage = $_GET["mileage"];
-  $carAskingPrice = $_GET["askingPrice"];
-  $carDescription = $_GET["description"];
-  //  $carSellerID = $_GET["sellerID"]; // ***may need to be changed
-  $sellerID = $_SESSION["userID"]; //should grad the ID forom the current session
-  $sqlstatement = $conn->prepare("INSERT INTO sleazCarListing (make, model, year, color, mileage, askingPrice, description, sellerID) values(?, ?, ?, ?, ?, ?, ?, ?)");
-  $sqlstatement->bind_param("ssisiisi",$carMake,$carModel,$carYear,$carColor,$carMileage,$carAskingPrice,$carDescription,$sellerID); //insert the variables into the ? in the above statement // "sssssssss" may not be correct
-  if($sqlstatement->execute()) { //execute the query
-    
+  {
+    // $listingID = $_GET["listingID"];
+    // echo "<b>  </b>";
+    $carMake = $_GET["make"];
+    $carModel = $_GET["model"];
+    $carYear = $_GET["year"];
+    $carColor = $_GET["color"];
+    $carMileage = $_GET["mileage"];
+    $carAskingPrice = $_GET["askingPrice"];
+    $carDescription = $_GET["description"];
+    $sellerID = $_SESSION["userID"]; //should grad the ID forom the current session
+    $sqlstatement = $conn->prepare("INSERT INTO sleazCarListing (make, model, year, color, mileage, askingPrice, description, sellerID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $sqlstatement->bind_param("ssisiisi",$carMake,$carModel,$carYear,$carColor,$carMileage,$carAskingPrice,$carDescription,$sellerID); //insert the variables into the ? in the above statement // "sssssssss" may not be correct
+    if($sqlstatement->execute()) { //execute the query
+      echo "<b> Sucess </b>";
+    } else {
+      echo "<b> Error: form submition not working, ty again later</b>";
+    }
+    // echo $sqlstatement->error; //print an error if the query fails
+    $sqlstatement->close();
   } else {
-    echo "<b> Error: form submition not working, ty again later</b>";
+    echo "<b> Error: Please enter car information to proceed.</b>";
   }
-  // echo $sqlstatement->error; //print an error if the query fails
-  $sqlstatement->close();
-} else {
-  echo "<b> Error: Please enter car information to proceed.</b>";
-}
   $conn->close();
- } //end else condition where form is submitted
-  ?> 
+} //end else condition where form is submitted
+?> 
 </form>
 </body>
 </html>
