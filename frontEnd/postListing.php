@@ -69,7 +69,7 @@ else {
       if($stmt->execute()){
         // Store result
         $stmt->store_result();
-        $sellerID = $stmt->id;
+        $stmt->bind_result($sellerID);
       } else {
         echo "<b>error getting user id</b>";
       }
