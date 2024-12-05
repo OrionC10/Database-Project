@@ -13,7 +13,7 @@
 <body>
 <?php
 
-echo "Oops! Something went wrong. Please try again later.";
+// echo "Oops! Something went wrong. Please try again later.";
 // Initialize the session
 session_start();
 
