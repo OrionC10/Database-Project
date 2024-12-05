@@ -45,8 +45,6 @@ include '../backEnd/config.inc'; //change file path for config.inc if needed
 
 
 <?php //starting php code again!
-$error_message = "This is a test error message from PHP";
-echo "<b> Error: Please enter car information to proceed.</b>";
 
 if (!isset($_GET["form_submitted"]))
 {
@@ -67,8 +65,12 @@ else {
   $carSellerID = $_SESSION["userID"]; //should grad the ID forom the current session
   $sqlstatement = $conn->prepare("INSERT INTO sleazCarListing (make, model, year, color, mileage, askingPrice, description, sellerID) values(?, ?, ?, ?, ?, ?, ?, ?, ?)");
   $sqlstatement->bind_param("ssisiisi",$carMake,$carModel,$carYear,$carColor,$carMileage,$carAskingPrice,$carDescription,$sellerID); //insert the variables into the ? in the above statement // "sssssssss" may not be correct
-  $sqlstatement->execute(); //execute the query
-  echo $sqlstatement->error; //print an error if the query fails
+  if($sqlstatement->execute()) { //execute the query
+    
+  } else {
+    echo "<b> Error: form submition not working, ty again later</b>";
+  }
+  // echo $sqlstatement->error; //print an error if the query fails
   $sqlstatement->close();
 } else {
   echo "<b> Error: Please enter car information to proceed.</b>";
