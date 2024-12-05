@@ -1,10 +1,11 @@
-<html>
+<!DOCTYPE html>
 <style>
 table, th, td {
   border: 1px solid black;
 }
 <?php
 include '../backEnd/config.inc'; //change file path for config.inc if needed
+
 // Create connection
  $conn = new mysqli($servername, $username, $password, $dbname);
  // Check connection
