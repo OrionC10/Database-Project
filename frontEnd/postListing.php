@@ -63,7 +63,7 @@ else {
   //  $carSellerID = $_GET["sellerID"]; // ***may need to be changed
   // $carSellerID = session()->get("userID");
    $sqlstatement = $conn->prepare("INSERT INTO sleazCarListing values(?, ?, ?, ?, ?, ?, ?, ?)"); //prepare the statement
-   $sqlstatement->bind_param("sssssssss",$listingID,$carMake,$carModel,$carYear,$carColor,$carMileage,$carAskingPrice,$carDescription); //insert the variables into the ? in the above statement // "sssssssss" may not be correct
+   $sqlstatement->bind_param("issisiis",$listingID,$carMake,$carModel,$carYear,$carColor,$carMileage,$carAskingPrice,$carDescription); //insert the variables into the ? in the above statement // "sssssssss" may not be correct
    $sqlstatement->execute(); //execute the query
    echo $sqlstatement->error; //print an error if the query fails
    $sqlstatement->close();
