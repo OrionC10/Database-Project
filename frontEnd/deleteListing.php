@@ -77,7 +77,7 @@ if (isset($_GET["form_submitted"])){
 {
    $listingID = $_GET["listingID"]; //gets id from the form
    $sqlstatement = $conn->prepare("DELETE FROM sleazCarListing where listingID =?"); //prepare the statement
-   $sqlstatement->bind_param("s",$listingID); //insert the variables into the ? in the above statement
+   $sqlstatement->bind_param("i",$listingID); //insert the variables into the ? in the above statement
    $sqlstatement->execute(); //execute the query
    echo $sqlstatement->error; //print an error if the query fails
    $sqlstatement->close();
