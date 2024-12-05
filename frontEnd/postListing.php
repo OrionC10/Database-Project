@@ -37,7 +37,6 @@ include '../backEnd/config.inc'; //change file path for config.inc if needed
     <p>Enter Car Mileage: <input type="number" size=5 name="mileage">
     <p>Enter Car Asking Price: <input type="number" size=5 name="askingPrice">
     <p>Enter Car Description: <input type="text" size=300 name="description">
-    <!-- seller ID thing -->
 
 	<p> <input type=submit value="submit">
                 <input type="hidden" name="form_submitted" value="1" >
@@ -62,6 +61,7 @@ else {
     $carMileage = $_GET["mileage"];
     $carAskingPrice = $_GET["askingPrice"];
     $carDescription = $_GET["description"];
+    $sellerID = 5;
     //get user id
     // $sellerID = 6;
     // $sellerID = $_SESSION["id"];
@@ -79,8 +79,8 @@ else {
     //   }
     // }
 
-    $sqlstatement = $conn->prepare("INSERT INTO sleazCarListing (make, model, year, color, mileage, askingPrice, description) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $sqlstatement->bind_param("ssisiis",$carMake,$carModel,$carYear,$carColor,$carMileage,$carAskingPrice,$carDescription); //insert the variables into the ? in the above statement // "sssssssss" may not be correct
+    $sqlstatement = $conn->prepare("INSERT INTO sleazCarListing (make, model, year, color, mileage, askingPrice, description, sellerID) VALUES (?, ?, ?, ?, ?, ?, ?. ?)");
+    $sqlstatement->bind_param("ssisiisi",$carMake,$carModel,$carYear,$carColor,$carMileage,$carAskingPrice,$carDescription,$sellerID); //insert the variables into the ? in the above statement // "sssssssss" may not be correct
     if($sqlstatement->execute()) { //execute the query
       echo "<b> Sucess </b>";
     } else {
