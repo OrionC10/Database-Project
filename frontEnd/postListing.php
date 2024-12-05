@@ -62,7 +62,7 @@ else {
     $carMileage = $_GET["mileage"];
     $carAskingPrice = $_GET["askingPrice"];
     $carDescription = $_GET["description"];
-    $sellerID = $_SESSION["userID"]; //should grad the ID forom the current session
+    $sellerID = $_SESSION["username"]; //should grad the ID forom the current session
     $sqlstatement = $conn->prepare("INSERT INTO sleazCarListing (make, model, year, color, mileage, askingPrice, description, sellerID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $sqlstatement->bind_param("ssisiisi",$carMake,$carModel,$carYear,$carColor,$carMileage,$carAskingPrice,$carDescription,$sellerID); //insert the variables into the ? in the above statement // "sssssssss" may not be correct
     if($sqlstatement->execute()) { //execute the query
