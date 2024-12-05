@@ -62,7 +62,18 @@ else {
     $carMileage = $_GET["mileage"];
     $carAskingPrice = $_GET["askingPrice"];
     $carDescription = $_GET["description"];
-    $sellerID = $_SESSION["username"]; //should grad the ID forom the current session
+    //get user id
+    $sellerUsername = $_SESSION["username"]; //should grab the ID forom the current session
+    $sqlUserID = "SELECT userID FROM sleazUser WHERE username = $sellerUsername";
+    if($stmt = $conn->prepare($sqlUserID)){
+      if($stmt->execute()){
+        // Store result
+        $stmt->store_result();
+      } else {
+        echo "<b>error getting user id</b>";
+      }
+    }
+
     $sqlstatement = $conn->prepare("INSERT INTO sleazCarListing (make, model, year, color, mileage, askingPrice, description, sellerID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $sqlstatement->bind_param("ssisiisi",$carMake,$carModel,$carYear,$carColor,$carMileage,$carAskingPrice,$carDescription,$sellerID); //insert the variables into the ? in the above statement // "sssssssss" may not be correct
     if($sqlstatement->execute()) { //execute the query
