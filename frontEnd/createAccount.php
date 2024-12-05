@@ -85,7 +85,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Set parameters
             $param_username = $username;
+            echo "username is '$username'\n";
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+            echo "pass is '$password'\n";
+            echo "pass hash is '$parm_password'\n";
             
             // Attempt to execute the prepared statement
             if($stmt->execute()){
