@@ -9,9 +9,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 
 
-include '../auth/config.php'; // Change path if needed
+include '../backEnd/config.inc'; // Change path if needed
 // Create connection
- $conn = new mysqli($servername, $username, $password, $dbname);
+ $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
  // Check connection
  if ($conn->connect_error) {
    die("Connection failed: " . $conn->connect_error);

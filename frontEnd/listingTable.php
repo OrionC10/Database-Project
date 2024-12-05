@@ -32,10 +32,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <p><h2>Current Listings:</h2></p>
 
 <?php // this line starts PHP Code
-include '../no_auth/config.inc'; //change file path for config.inc if needed
+include '../backEnd/config.inc'; //change file path for config.inc if needed
 
 // Create connection
- $conn = new mysqli($servername, $username, $password, $dbname);
+ $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
  // Check connection
  if ($conn->connect_error) {
    die("Connection failed: " . $conn->connect_error);

@@ -4,7 +4,7 @@ table, th, td {
   border: 1px solid black;
 }
 <?php
-include '../no_auth/config.inc'; //change file path for config.inc if needed
+include '../backEnd/config.inc'; //change file path for config.inc if needed
 ?>
 
 
@@ -28,7 +28,7 @@ if (!isset($_GET["form_submitted"]))
 else {
 // Create connection
 
- $conn = new mysqli($servername, $username, $password, $dbname);
+ $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
  // Check connection
  if ($conn->connect_error) {
    die("Connection failed: " . $conn->connect_error);

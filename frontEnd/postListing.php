@@ -4,7 +4,7 @@ table, th, td {
   border: 1px solid black;
 }
 <?php
-include '../no_auth/config.inc'; //change file path for config.inc if needed
+include '../backEnd/config.inc'; //change file path for config.inc if needed
 // Create connection
  $conn = new mysqli($servername, $username, $password, $dbname);
  // Check connection
