@@ -94,6 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             header("location: listingTable.php");
                         } else{
                             // Password is not valid, display a generic error message
+                            echo "invalid username or password";
                             $login_err = "Invalid username or password.";
                         }
                     }
