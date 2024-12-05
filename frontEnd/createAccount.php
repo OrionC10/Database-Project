@@ -1,7 +1,7 @@
 <?php
 // Include config file
 require_once "../backEnd/config.inc";
-error_log("This is an error message to the log file or console");
+// error_log("This is an error message to the log file or console");
 
 // Create connection
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
@@ -25,7 +25,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Username can only contain letters, numbers, and underscores.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT userID FROM sleazUser WHERE username = ?";
+        $sql = "SELECT userID FROM sleazUser WHERE userName = ?";
         
         if($stmt = $conn->prepare($sql)){
             // Bind variables to the prepared statement as parameters
