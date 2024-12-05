@@ -67,6 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;                            
                             
                             // Redirect user to welcome page
+                            echo "Oops! Something went wrong. Please try again later.";
                             header("location: listingTable.php");
                         } else{
                             // Password is not valid, display a generic error message
