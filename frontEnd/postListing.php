@@ -41,12 +41,12 @@ include '../backEnd/config.inc'; //change file path for config.inc if needed
 
 	<p> <input type=submit value="submit">
                 <input type="hidden" name="form_submitted" value="1" >
-</form>
+
 
 
 <?php //starting php code again!
 $error_message = "This is a test error message from PHP";
-
+echo "<b> Error: Please enter car information to proceed.</b>";
 
 if (!isset($_GET["form_submitted"]))
 {
@@ -70,12 +70,12 @@ else {
   $sqlstatement->execute(); //execute the query
   echo $sqlstatement->error; //print an error if the query fails
   $sqlstatement->close();
- }
- else {
+} else {
   echo "<b> Error: Please enter car information to proceed.</b>";
- }
+}
   $conn->close();
  } //end else condition where form is submitted
-  ?> <!-- this is the end of our php code -->
+  ?> 
+</form>
 </body>
 </html>
