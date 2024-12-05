@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <style>
+
 table, th, td {
   border: 1px solid black;
 }
 <?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+
 include '../backEnd/config.inc'; //change file path for config.inc if needed
 
 // Create connection
@@ -50,9 +60,10 @@ else {
    $carMileage = $_GET["mileage"];
    $carAskingPrice = $_GET["askingPrice"];
    $carDescription = $_GET["description"];
-   $carSellerID = $_GET["sellerID"]; // ***may need to be changed
-   $sqlstatement = $conn->prepare("INSERT INTO sleazCarListing values(?, ?, ?, ?, ?, ?, ?, ?, ?)"); //prepare the statement
-   $sqlstatement->bind_param("sssssssss",$listingID,$carMake,$carModel,$carYear,$carColor,$carMileage,$carAskingPrice,$carDescription,$carSellerID); //insert the variables into the ? in the above statement // "sssssssss" may not be correct
+  //  $carSellerID = $_GET["sellerID"]; // ***may need to be changed
+  // $carSellerID = session()->get("userID");
+   $sqlstatement = $conn->prepare("INSERT INTO sleazCarListing values(?, ?, ?, ?, ?, ?, ?, ?)"); //prepare the statement
+   $sqlstatement->bind_param("sssssssss",$listingID,$carMake,$carModel,$carYear,$carColor,$carMileage,$carAskingPrice,$carDescription); //insert the variables into the ? in the above statement // "sssssssss" may not be correct
    $sqlstatement->execute(); //execute the query
    echo $sqlstatement->error; //print an error if the query fails
    $sqlstatement->close();
