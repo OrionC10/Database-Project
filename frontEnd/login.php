@@ -2,13 +2,6 @@
 // Initialize the session
 session_start();
 
-$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    // error_log("connection suck");
-    die("Connection failed: " . $conn->connect_error);
-}
-
  
 // Check if the user is already logged in, if yes then redirect them to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
@@ -19,6 +12,14 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 // Include config file
 require_once "../backEnd/config.inc";
  
+//connect to db
+$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    // error_log("connection suck");
+    die("Connection failed: " . $conn->connect_error);
+}
+
 // Define variables and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = $login_err = "";
