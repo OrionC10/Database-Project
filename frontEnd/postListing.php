@@ -27,16 +27,16 @@ include '../backEnd/config.inc'; //change file path for config.inc if needed
 
 </style
 <body>
-<p><h2>Post Listing Form:</h2></p>
+<p><h2>Post Listing Form :</h2></p>
 <form action="postListing.php" method=get>
     <!-- create car ID -->
-	Enter Car Make: <input type=text size=20 name="make">
-	<p>Enter Car Model: <input type=text size=5 name="model">
-	<p>Enter Car Year: <input type="number" size=5 name="year">
-    <p>Enter Car Color: <input type=text size=5 name="color">
+	  <>Enter Car Make: <input type="text" size=20 name="make">
+	  <p>Enter Car Model: <input type="text" size=5 name="model">
+	  <p>Enter Car Year: <input type="number" size=5 name="year">
+    <p>Enter Car Color: <input type="text" size=5 name="color">
     <p>Enter Car Mileage: <input type="number" size=5 name="mileage">
     <p>Enter Car Asking Price: <input type="number" size=5 name="askingPrice">
-    <p>Enter Car Description: <input type=text size=300 name="description">
+    <p>Enter Car Description: <input type="text" size=300 name="description">
     <!-- seller ID thing -->
 
 	<p> <input type=submit value="submit">
