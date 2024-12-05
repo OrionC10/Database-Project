@@ -75,6 +75,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
+
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);   
+
+
         
         // Prepare an insert statement
         $sql = "INSERT INTO sleazUser (username, password) VALUES (?, ?)";
@@ -85,18 +90,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Set parameters
             $param_username = $username;
-            echo "username is '$username'\n";
+            // echo "username is '$username'\n";
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            echo "pass is '$password'\n";
-            echo "pass hash is '$parm_password'\n";
+            // echo "pass is '$password'\n";
+            // echo "pass hash is '$parm_password'\n";
 
-            //testing pass hash
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-                if ($hashedPassword === false) {
-                    echo "Password hashing failed";
-                } else {
-                    echo "Password hash created successfully: $hashedPassword";
-                }
+            // //testing pass hash
+            // $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            //     if ($hashedPassword === false) {
+            //         echo "Password hashing failed";
+            //     } else {
+            //         echo "Password hash created successfully: $hashedPassword";
+            //     }
 
             
             // Attempt to execute the prepared statement
