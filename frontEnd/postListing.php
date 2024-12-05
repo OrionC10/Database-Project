@@ -70,6 +70,7 @@ else {
         // Store result
         $stmt->store_result();
         $stmt->bind_result($sellerID);
+        $stmt->fetch();
       } else {
         echo "<b>error getting user id</b>";
       }
