@@ -89,6 +89,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             echo "pass is '$password'\n";
             echo "pass hash is '$parm_password'\n";
+
+            //testing pass hash
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                if ($hashedPassword === false) {
+                    echo "Password hashing failed";
+                } else {
+                    echo "Password hash created successfully: $hashedPassword";
+                }
+
             
             // Attempt to execute the prepared statement
             if($stmt->execute()){
