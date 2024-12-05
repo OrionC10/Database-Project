@@ -63,7 +63,7 @@ else {
     $carAskingPrice = $_GET["askingPrice"];
     $carDescription = $_GET["description"];
     //get user id
-    $_SESSION["id"] = $sellerID;
+    $sellerID = $_SESSION["id"];
     // $sellerUsername = $_SESSION["username"]; //should grab the ID forom the current session
     // $sqlUserID = "SELECT userID FROM sleazUser WHERE username = $sellerUsername";
     // if($stmt = $conn->prepare($sqlUserID)){
