@@ -1,7 +1,7 @@
 <?php
 // Include config file
 require_once "../backEnd/config.inc";
-
+error_log("This is an error message to the log file or console");
 
 // Create connection
 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
