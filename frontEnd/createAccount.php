@@ -25,7 +25,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Username can only contain letters, numbers, and underscores.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT userID FROM sleazUser WHERE userName = ?";
+        $sql = "SELECT userID FROM sleazUser WHERE username = ?";
         
         if($stmt = $conn->prepare($sql)){
             // Bind variables to the prepared statement as parameters
@@ -93,7 +93,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 header("location: login.php");
             } else{
                 echo "Oops! Something went wrong. Please try again later. test 1";
-                echo "username was $username";
+                // echo "username was $username";
             }
 
             // Close statement
