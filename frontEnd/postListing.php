@@ -84,8 +84,8 @@ else {
     if($sqlstatement->execute()) { //execute the query
       echo "<b> Sucess </b>";
     } else {
-      echo "<b> Error: form submition not working, ty again later </b>";
-      // echo "<b>values are, $carMake, $carModel, $carYear, $carColor, $carMileage, $carAskingPrice, $carDescription</b>";
+      echo "<b> Error: form submition not working, try again later </b>";
+      echo "<b>values are, $carMake, $carModel, $carYear, $carColor, $carMileage, $carAskingPrice, $carDescription</b>";
     }
     // echo $sqlstatement->error; //print an error if the query fails
     $sqlstatement->close();
