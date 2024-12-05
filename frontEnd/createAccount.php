@@ -1,6 +1,14 @@
 <?php
 // Include config file
 require_once "../backEnd/config.inc";
+
+
+// Create connection
+$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
  
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
