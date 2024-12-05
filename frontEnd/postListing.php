@@ -51,7 +51,7 @@ if (!isset($_GET["form_submitted"]))
 		echo "Hello. Please enter the car's information and submit the form.";
 }
 else {
-  if (!empty($_GET["listingID"]) && !empty($_GET["make"]) && !empty($_GET["model"]) && !empty($_GET["year"]) && !empty($_GET["color"]) && !empty($_GET["mileage"]) && !empty($_GET["askingPrice"]) && !empty($_GET["description"]) && !empty($_GET["sellerID"]))
+  if (!empty($_GET["make"]) && !empty($_GET["model"]) && !empty($_GET["year"]) && !empty($_GET["color"]) && !empty($_GET["mileage"]) && !empty($_GET["askingPrice"]) && !empty($_GET["description"]))
 {
   $listingID = $_GET["listingID"];
   $carMake = $_GET["make"];
