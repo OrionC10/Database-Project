@@ -1,3 +1,16 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body{ font: 14px sans-serif; }
+        .wrapper{ width: 360px; padding: 20px; }
+    </style>
+</head>
+<body>
 <?php
 // Initialize the session
 session_start();
@@ -76,7 +89,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;                            
                             
                             // Redirect user to welcome page
-                            echo "Oops! Something went wrong. Please try again later.";
                             header("location: listingTable.php");
                         } else{
                             // Password is not valid, display a generic error message
@@ -86,6 +98,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 } else{
                     // Username doesn't exist, display a generic error message
                     $login_err = "Invalid username or password.";
+                    echo "Oops! Something went wrong. Please try again later.";
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -100,19 +113,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $conn->close();
 }
 ?>
- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 360px; padding: 20px; }
-    </style>
-</head>
-<body>
     <div class="wrapper">
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>
