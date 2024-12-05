@@ -4,7 +4,7 @@ session_start();
  
 // Check if the user is already logged in, if yes then redirect them to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: welcome.php");
+    header("location: listingTable.php");
     exit;
 }
  
@@ -31,6 +31,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $password = trim($_POST["password"]);
     }
+    
+
+  
     
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
@@ -124,7 +127,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+            <p>Don't have an account? <a href="createAccount.php">Sign up now</a>.</p>
         </form>
     </div>
 </body>
