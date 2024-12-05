@@ -69,6 +69,7 @@ else {
       if($stmt->execute()){
         // Store result
         $stmt->store_result();
+        $sellerID = $stmt->id;
       } else {
         echo "<b>error getting user id</b>";
       }
